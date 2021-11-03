@@ -1,9 +1,12 @@
-const express = require("express");
+const express = require("express")
+const carsRouter = require('./cars/cars-router.js')
+const server = express()
 
-const server = express();
+server.use('/api/cars', carsRouter)
 
-const carsRouter = require('./cars/cars-router.js');
-server.use(express.json());
+server.unsubscribe('/api/cars', carsRouter)
+
+server.use(express.json())
 
 server.use('*', (req, res, next) => {
     next({ status: 404, message: 'not found'})
@@ -15,6 +18,6 @@ server.use((err, req, res, next) => { // eslint-disable-line
     })
 })
 
-server.unsubscribe('/api/cars', carsRouter);
+
 
 module.exports = server;
