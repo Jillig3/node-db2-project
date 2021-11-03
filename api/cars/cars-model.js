@@ -5,7 +5,6 @@ module.exports = {
   getById,
   create,
 }
-
 async function getAll() {
   // DO YOUR MAGIC
   const result = await db('cars')
