@@ -1,12 +1,5 @@
 const db = require('../../data/db-config.js');
 
-module.exports = {
-  getAll,
-  getById,
-  create,
-  getByVin,
-}
-
 const getAll = () => {
   return db('cars')
 }
@@ -23,5 +16,12 @@ const create = (car) => {
   return db('cars').insert(car)
   .then(([id]) => {
     return getById(id)
-  }
+  })
+}
+
+module.exports = {
+  getAll,
+  getById,
+  create,
+  getByVin,
 }

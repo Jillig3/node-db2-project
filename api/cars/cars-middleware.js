@@ -1,7 +1,7 @@
 const Car = require('./cars-model')
 const vin = require('vin-validator')
 
-const checkCarId = (req, res, next) => {
+const checkCarId = async (req, res, next) => {
   try {
     const car = await Car.getById(req.params.id)
     if (!car) {
