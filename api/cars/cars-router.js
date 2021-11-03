@@ -30,8 +30,8 @@ router.post(
     checkVinNumberUnique,
     async (req, res, next) => {
     try {
-        const newCar = await Car.create(req.body)
-        res.status(201).json(newCar)
+        const car = await Car.create(req.body)
+        res.json(car)
     } catch (err) {
         next(err)
     }
