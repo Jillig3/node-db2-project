@@ -1,6 +1,6 @@
 const cars = [
     {
-        vin: '1111111111111',
+        vin: '11111111111111111',
         make: 'toyota',
         model: 'prius',
         mileage: 215000,
@@ -8,16 +8,22 @@ const cars = [
         transmission: 'manual',
     },
     {
-        vin: '1111111111112',
+        vin: '22222222222222222',
         make: 'toyota',
         model: 'corolla',
         mileage: 115000,
         title: 'salvage',
     },    
     {
-        vin: '1111111111113',
+        vin: '33333333333333333',
         make: 'ford',
         model: 'focus',
         mileage: 1500,
     },
 ]
+
+
+exports.seed = async function (knex) {
+    await knex('cars').truncate()
+    await knex('cars').insert(cars)
+}
